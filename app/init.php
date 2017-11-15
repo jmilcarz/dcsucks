@@ -23,8 +23,7 @@ if ($host == "/dcssie/register.php" || $host == "/dcssie/login.php") {
      echo "";
 }else {
      if (auth::loggedin()) {
-          header("Location: index.php");
-          exit();
+          
      }else {
           auth::isloggedin(); // check if user is loggedin or not
      }

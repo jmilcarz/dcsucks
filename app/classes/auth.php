@@ -104,6 +104,8 @@ class auth {
                          DB::query('INSERT INTO users VALUES (\'\', :username, :email, :password, 1, \'\')', [':username'=>$username, ':email'=>$email, ':password'=>password_hash($password, PASSWORD_BCRYPT)]);
                          Mail::sendMail('Welcome!', 'Your account has been created!', $email);
                          self::login($username, $password);
+                         header("Location: index.php");
+                         exit();
 
                     }else {echo 'Email already in use!';}
                     }else {echo 'Invalid email!';}
