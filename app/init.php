@@ -1,11 +1,14 @@
 <?php
 
 // system
-$system_name = "DCSucs blog";
-$systen_lang = "pl";
-$system_Mail_email = "phpstarter@phpstarter.example";
-$system_Mail_password = "DCSucs blog";
-$system_Mail_sentFrom = "DCSucs blog";
+class init {
+     static $system_name = "DCSucs blog";
+     static $system_lang = "pl";
+     static $system_Mail_email = "phpstarter@phpstarter.example";
+     static $system_Mail_password = "DCSucs blog";
+     static $system_Mail_sentFrom = "DCSucs blog";
+}
+
 
 // require classes (don't change this)
 function __autoload($class_name) {
@@ -19,7 +22,12 @@ $host = $_SERVER['REQUEST_URI'];
 if ($host == "/dcssie/register.php" || $host == "/dcssie/login.php") {
      echo "";
 }else {
-     auth::isloggedin(); // check if user is loggedin or not
+     if (auth::loggedin()) {
+          header("Location: index.php");
+          exit();
+     }else {
+          auth::isloggedin(); // check if user is loggedin or not
+     }
 }
 
 // logout

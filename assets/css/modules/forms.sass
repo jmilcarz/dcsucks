@@ -1,0 +1,47 @@
+.auth-form
+     height: 100vh
+     display: flex
+     justify-content: center
+     align-items: center
+     flex-direction: column
+     a
+          color: $dccolor2
+          text-decoration: none
+          font-weight: 400
+          font-size: 15px
+          margin: 10px 0 0 0
+          +tran
+          &:hover
+               color: darken($dccolor2, 7%)
+
+     img
+          max-width: 420px
+          width: 100%
+          display: block
+          margin: 0 auto 50px auto
+     form
+          max-width: 320px
+          width: 100%
+          display: flex
+          flex-direction: column
+          align-items: center
+          input, button
+               width: 100%
+               margin: 5px 0
+               box-sizing: border-box
+               padding: 0 5px
+               outline: none
+               background: $dccolor3
+               border: 2px solid $dccolor1
+               border-radius: 3px
+               height: 32px
+               font-size: 13px
+               color: $dccolor2
+               +tran
+               &:focus
+                    border-color: $dccolor4
+
+          button
+               &:hover
+                    cursor: pointer
+                    border-color: $dccolor4

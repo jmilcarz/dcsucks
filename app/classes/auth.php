@@ -6,7 +6,7 @@ class auth {
           DB::query('DELETE FROM login_tokens WHERE user_id=:userid', array(':userid'=>self::loggedin()));
           setcookie("" . self::$system_cookie_name . "", '1', time()-3600);
           setcookie("" . self::$system_cookie_name . "_", '1', time()-3600);
-          header('Location: '.$_SERVER['PHP_SELF']);
+          header("Location: " . $_SERVER['PHP_SELF'] . "");
      }
      static function isloggedin() {
           if (!self::loggedin()) {
@@ -92,7 +92,7 @@ class auth {
           }
      }
 
-     public static function register($firstname, $lastname, $username, $email, $password, $rpassword) {
+     public static function register($username, $email, $password, $rpassword) {
           if (!DB::query('SELECT username FROM users WHERE username=:username', [':username'=>$username])) {
           if (strlen($username) >= 4 && strlen($username) <= 32) {
           if (preg_match('/[a-zA-Z0-9_]+/', $username)) {
@@ -101,7 +101,7 @@ class auth {
                     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     if (!DB::query('SELECT email FROM users WHERE email=:email', [':email'=>$email])) {
 
-                         DB::query('INSERT INTO users VALUES (\'\', :firstname, :lastname, :username, :email, :password)', [':firstname'=>$firstname, ':lastname'=>$lastname, ':username'=>$username, ':email'=>$email, ':password'=>password_hash($password, PASSWORD_BCRYPT)]);
+                         DB::query('INSERT INTO users VALUES (\'\', :username, :email, :password, 1, \'\')', [':username'=>$username, ':email'=>$email, ':password'=>password_hash($password, PASSWORD_BCRYPT)]);
                          Mail::sendMail('Welcome!', 'Your account has been created!', $email);
                          self::login($username, $password);
 

@@ -1,11 +1,11 @@
 <?php require_once("./app/init.php");?>
 <!DOCTYPE html>
-<html lang="<?php echo $system_lang; ?>">
+<html lang="<?php echo init::$system_lang; ?>">
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <title><?php echo $system_name; ?></title>
+     <title><?php echo init::$system_name; ?></title>
      <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
