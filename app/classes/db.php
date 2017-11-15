@@ -1,6 +1,6 @@
 <?php
 class DB {
-     private static $system_dbname = "phpstarter";
+     private static $system_dbname = "pblog";
      private static $system_dbpassword = "";
      private static $system_dbusername = "root";
 

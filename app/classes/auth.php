@@ -1,6 +1,6 @@
 <?php
 class auth {
-     public static $system_cookie_name = "PPS";
+     public static $system_cookie_name = "DCSUCS";
      public static $system_login_with_email_or_username = true;
      static function logout() {
           DB::query('DELETE FROM login_tokens WHERE user_id=:userid', array(':userid'=>self::loggedin()));
@@ -10,7 +10,7 @@ class auth {
      }
      static function isloggedin() {
           if (!self::loggedin()) {
-               require("./app/login_again.php");
+               require("./login.php");
                exit();
           }
      }

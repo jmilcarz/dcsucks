@@ -15,7 +15,7 @@ if (isset($_POST['loginbtn'])) {
 <body>
      <form action="" method="post">
           <?php if (auth::$system_login_with_email_or_username == true) {
-               echo '<input type="email" name="username" placeholder="email or username">';
+               echo '<input type="text" name="username" placeholder="email or username">';
           }else {
                echo '<input type="text" name="username" placeholder="username">';
           } ?>
